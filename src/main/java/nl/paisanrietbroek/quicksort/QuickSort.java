@@ -1,6 +1,5 @@
 package nl.paisanrietbroek.quicksort;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -8,12 +7,16 @@ import java.util.Arrays;
  */
 public class QuickSort {
 
-    public static void sort(int[] a) {
+    public static <T> void sort(T[] a) {
+
         sort(a, 0, a.length - 1);
+        System.out.println("Array type: " + a.getClass());
         System.out.println("Result Quicksort: " + Arrays.toString(a));
+        System.out.println("-----------------------------------------");
+        System.out.println();
     }
 
-    private static void sort(int[] a, int lo, int hi) {
+    private static <T> void sort(T[] a, int lo, int hi) {
         if (hi <= lo) {
             return;
         }
@@ -25,10 +28,10 @@ public class QuickSort {
         sort(a, j+1, hi); // Sort right part
     }
 
-    private static int partition(int[] a, int lo, int hi) {
+    private static <T> int partition(T[] a, int lo, int hi) {
         int i = lo, j = hi+1;
 
-        int item = a[lo];
+        T item = a[lo];
 
         while (true) {
             while (less(a[++i], item)) {
@@ -50,14 +53,13 @@ public class QuickSort {
         return j;
     }
 
-    private static void exch(int[] a, int i, int j) {
-        int tmp = a[i];
+    private static <T> void exch(T[] a, int i, int j) {
+        T tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
 
-    private static boolean less(int item, int i) {
-        return item < i;
+    private static<T> boolean less(T item, T i) {
+        return ((Comparable)item).compareTo(i) > 0;
     }
-
 }
