@@ -59,7 +59,7 @@ public class QuickSort {
         a[j] = tmp;
     }
 
-    private static<T> boolean less(T item, T i) {
-        return ((Comparable)item).compareTo(i) > 0;
+    public static<T> boolean less(T item, T i) {
+        return ((Comparable)item).compareTo(i) < 0;
     }
 }
