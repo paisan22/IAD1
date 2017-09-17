@@ -1,5 +1,6 @@
 package nl.paisanrietbroek;
 
+import nl.paisanrietbroek.mergesort.MergeSort;
 import nl.paisanrietbroek.quicksort.QuickSort;
 
 /**
@@ -16,5 +17,8 @@ public class App
         QuickSort quickSort = new QuickSort();
         quickSort.sort(intArray);
         quickSort.sort(stringArray);
+
+        int[] intArray2 = {4,1,6,3,7,6,5, 8};
+        new MergeSort().mergeSort(intArray2, 0, intArray2.length -1);
     }
 }

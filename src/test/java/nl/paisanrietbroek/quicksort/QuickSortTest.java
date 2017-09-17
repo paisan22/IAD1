@@ -48,5 +48,4 @@ public class QuickSortTest {
         assertTrue(r1);
         assertFalse(r2);
     }
-
 }
