@@ -1,5 +1,6 @@
 package nl.paisanrietbroek;
 
+import nl.paisanrietbroek.heapsort.HeapSort;
 import nl.paisanrietbroek.mergesort.MergeSort;
 import nl.paisanrietbroek.quicksort.QuickSort;
 
@@ -11,14 +12,22 @@ public class App
 {
     public static void main( String[] args )
     {
-        Integer[] intArray = {4,1,6,3,7,6,5};
-        Character[] stringArray = {'d','g','x','t','a','c'};
 
-        QuickSort quickSort = new QuickSort();
-        quickSort.sort(intArray);
-        quickSort.sort(stringArray);
+        int[] array = generateRandomIntArray(10000);
 
-        int[] intArray2 = {4,1,6,3,7,6,5, 8};
-        new MergeSort().mergeSort(intArray2, 0, intArray2.length -1);
+        new QuickSort(array); // from 10000000 quicksort get faster
+
+        new MergeSort(array);
+
+        int[] heapOrderdArray = {7, 90, 33, 45, 12, 10, 15, 18};
+        new HeapSort(heapOrderdArray);
+    }
+
+    private static int[] generateRandomIntArray(int size) {
+        int[] array = new int[size];
+        for (int i = 0; i < size;i++) {
+            array[i] = (int) (Math.random() * 100);
+        }
+        return array;
     }
 }

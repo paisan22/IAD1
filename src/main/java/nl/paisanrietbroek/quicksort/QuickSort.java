@@ -1,5 +1,7 @@
 package nl.paisanrietbroek.quicksort;
 
+import org.joda.time.DateTime;
+
 import java.util.Arrays;
 
 /**
@@ -7,16 +9,23 @@ import java.util.Arrays;
  */
 public class QuickSort {
 
-    public static <T> void sort(T[] a) {
+    private int[] array;
 
-        sort(a, 0, a.length - 1);
-        System.out.println("Array type: " + a.getClass());
-        System.out.println("Result Quicksort: " + Arrays.toString(a));
-        System.out.println("-----------------------------------------");
-        System.out.println();
+    public QuickSort(int[] ints) {
+        this.array = ints;
+
+        DateTime now = DateTime.now();
+        sort(array);
+        DateTime after = DateTime.now();
+        printArrayState(getDiffInMilis(now, after));
+
     }
 
-    private static <T> void sort(T[] a, int lo, int hi) {
+    public static <T> void sort(int[] a) {
+        sort(a, 0, a.length - 1);
+    }
+
+    private static <T> void sort(int[] a, int lo, int hi) {
         if (hi <= lo) {
             return;
         }
@@ -28,10 +37,10 @@ public class QuickSort {
         sort(a, j+1, hi); // Sort right part
     }
 
-    private static <T> int partition(T[] a, int lo, int hi) {
+    private static <T> int partition(int[] a, int lo, int hi) {
         int i = lo, j = hi+1;
 
-        T item = a[lo];
+        int item = a[lo];
 
         while (true) {
             while (less(a[++i], item)) {
@@ -53,13 +62,23 @@ public class QuickSort {
         return j;
     }
 
-    private static <T> void exch(T[] a, int i, int j) {
-        T tmp = a[i];
+    private static <T> void exch(int[] a, int i, int j) {
+        int tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
 
     public static<T> boolean less(T item, T i) {
         return ((Comparable)item).compareTo(i) < 0;
+    }
+
+    private void printArrayState(long diff) {
+        System.out.println("Quicksort (n log n) execution time in milliseconds: " + diff + " with n=" + array.length);
+//        System.out.println(Arrays.toString(array));
+        System.out.println("----------------------------------------------------");
+    }
+
+    private long getDiffInMilis(DateTime now, DateTime after) {
+        return after.getMillis() - now.getMillis();
     }
 }
