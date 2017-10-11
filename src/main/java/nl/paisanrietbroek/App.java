@@ -1,5 +1,6 @@
 package nl.paisanrietbroek;
 
+import nl.paisanrietbroek.graph.GraphCreator;
 import nl.paisanrietbroek.hashtable.SearchTimeCalculator;
 import nl.paisanrietbroek.heapsort.HeapSort;
 import nl.paisanrietbroek.mergesort.MergeSort;
@@ -23,15 +24,17 @@ public class App
 //        int[] heapOrderdArray = {7, 90, 33, 45, 12, 10, 15, 18};
 //        new HeapSort(heapOrderdArray);
 
-        SearchTimeCalculator searchTimeCalculator = new SearchTimeCalculator(100);
-        SearchTimeCalculator searchTimeCalculator1 = new SearchTimeCalculator(1000);
-        SearchTimeCalculator searchTimeCalculator2 = new SearchTimeCalculator(10000);
-        SearchTimeCalculator searchTimeCalculator3 = new SearchTimeCalculator(100000);
+//        SearchTimeCalculator searchTimeCalculator = new SearchTimeCalculator(100);
+//        SearchTimeCalculator searchTimeCalculator1 = new SearchTimeCalculator(1000);
+//        SearchTimeCalculator searchTimeCalculator2 = new SearchTimeCalculator(10000);
+//        SearchTimeCalculator searchTimeCalculator3 = new SearchTimeCalculator(100000);
+//
+//        searchTimeCalculator.getSearchTime(searchTimeCalculator.getRandomKey());
+//        searchTimeCalculator1.getSearchTime(searchTimeCalculator.getRandomKey());
+//        searchTimeCalculator2.getSearchTime(searchTimeCalculator.getRandomKey());
+//        searchTimeCalculator3.getSearchTime(searchTimeCalculator.getRandomKey());
 
-        searchTimeCalculator.getSearchTime(searchTimeCalculator.getRandomKey());
-        searchTimeCalculator1.getSearchTime(searchTimeCalculator.getRandomKey());
-        searchTimeCalculator2.getSearchTime(searchTimeCalculator.getRandomKey());
-        searchTimeCalculator3.getSearchTime(searchTimeCalculator.getRandomKey());
+        new GraphCreator();
 
     }
 
